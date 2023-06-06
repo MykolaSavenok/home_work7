@@ -14,23 +14,30 @@ alert(sum)
 
 
 //Дано ціле число. З'ясувати, чи є воно простим (простим називається число, більше ніж 1, яке не має інших дільників, крім 1 і себе).
-let n = 10;
+let number = 10;
 
-nextPrime:
-for (let i = 2; i <= n; i++) {
+for (let i = 2; i <= number; i++) {
+   let isPrime = true;
    for (let j = 2; j < i; j++) {
-      if (i % j == 0) continue nextPrime;
+      if (i % j === 0) {
+         isPrime = false;
+         console.log(`${i}: Складене число`)
+         break;
+      }
    }
-   console.log(i);
+   if (isPrime) {
+      console.log(`${i}: Просте число`);
+   }
 }
 
 
 //Дано ціле число. Визначити, чи можна одержати це число шляхом зведення числа 3 в деякий ступінь. (Наприклад, числа 9, 81 можна отримати, а 13 - не можна)
-let number = +prompt('Введіть число:');
-let stupin = 2;
+const base = 3;
+const exponent = 3;
+let result = 1;
 
-if (!number) {
-   alert(`Nubmer is not valid`)
-} else {
-   alert(number ** stupin)
+for (let i = 0; i < exponent; i++) {
+  result *= base;
 }
+console.log(result);
+
